@@ -2,8 +2,6 @@
 
 WanderWheels is a Car rental System provides a convenient, on-demand solution for short-term vehicle access
 
-(inspired by zoomcar)
-
 [WanderWheels Live Site](https://ho-ssain.github.io/WanderWheels/)
 
 ## User Role
@@ -46,3 +44,5 @@ npm install
 ```bash
 ng serve
 ```
+
+(inspired by zoomcar)
