@@ -1,0 +1,119 @@
+header {
+  position: relative;
+  padding: 0;
+  font-size: 1.4rem;
+  width: 100%;
+  height: 80px;
+}
+
+a {
+  color: var(--neon-green);
+}
+
+a:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+a.active {
+  opacity: 0.7;
+}
+
+.navbar {
+  background: linear-gradient(to bottom, #03020a, #0d2c18, #1f351f);
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.logo img {
+  object-fit: cover;
+  width: 100px;
+  height: inherit;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+ul li {
+  margin: 0 1.5rem;
+}
+
+a span {
+  background: #e72929;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  border-radius: 50%;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  background: black;
+  width: 100%;
+  min-width: 8rem;
+  padding: 0.5rem 1rem;
+}
+
+.menu a {
+  display: block;
+}
+
+.menu-container:hover .menu {
+  display: block;
+}
+
+.menu-bar {
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 630px) {
+  .navbar {
+    padding: 0;
+  }
+  .menu-bar {
+    display: block;
+    backdrop-filter: blur(0);
+  }
+
+  /* Hide the navigation links when isMenuOpen is false */
+  .nav-links:not(.show) {
+    display: none;
+  }
+
+  .nav-links {
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  ul li {
+    margin: 0.5rem;
+  }
+}

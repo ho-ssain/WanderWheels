@@ -1,0 +1,363 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <div class="col-8">
+          <div class="card" style="border: none">
+            <div class="card-body p-0">
+              <img style="border-radius: 10px" [src]="carDetails?.imageUrl" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card">
+            <div class="card-body bg-black text-light">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <p>
+                {{ carDetails?.brand }} {{ carDetails?.name }}
+                <small *ngFor="let item of carDetails.zoomCarAccessoriess">
+                  {{ item.accessoriesTitle }}
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body bg-black text-light">
+              <div class="row">
+                <div class="col-5">
+                  <h6>From</h6>
+                  <p>{{ carDetails?.registeredOn | date : "dd-MM-yyyy" }}</p>
+                  <p>Owner Contact</p>
+                </div>
+                <div class="col-2">
+                  <i
+                    style="font-size: 32px; padding-top: 38px"
+                    class="fa fa-chevron-right"
+                    aria-hidden="true"
+                  ></i>
+                  <i
+                    style="font-size: 32px; padding-top: 38px"
+                    class="fa fa-chevron-right"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+                <div class="col-5 text-end">
+                  <h6>To</h6>
+                  <p>Wed, 22 Nov, 08:00 AM</p>
+                  <p>M. Wazalwar Driving School</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body bg-black text-light">
+              <h4>About the car</h4>
+              <p>
+                Easy to ride and comfortable for 4 peoples for long drives good
+                music and noise free car
+              </p>
+              <div class="row">
+                <div class="col-3 pt-2">
+                  <i class="fa fa-car" aria-hidden="true"></i> Full boot space
+                </div>
+                <div class="col-3 pt-2">
+                  <i class="fa fa-car" aria-hidden="true"></i> Bluetooth
+                </div>
+                <div class="col-3 pt-2">
+                  <i class="fa fa-car" aria-hidden="true"></i> Toolkit
+                </div>
+                <div class="col-3 pt-2">
+                  <i class="fa fa-car" aria-hidden="true"></i> Air Conditioning
+                </div>
+
+                <div class="col-3 pt-2">
+                  <i class="fa fa-car" aria-hidden="true"></i> Music System
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body bg-black text-light">
+              <h4>Booking Details</h4>
+              <div class="row">
+                <div class="col-6">
+                  <label for="">From Location</label>
+                  <select
+                    [(ngModel)]="bookingObj.fromLocationId"
+                    name="fromLocation"
+                    id="start"
+                    class="form-control"
+                  >
+                    <option value="">Pick Up Address</option>
+                    <option
+                      *ngFor="let location of locations"
+                      [value]="location.locationId"
+                    >
+                      {{ location.title }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label for="">To Location</label>
+                  <select
+                    [(ngModel)]="bookingObj.toLocationId"
+                    name="toLocation"
+                    id="start"
+                    class="form-control"
+                  >
+                    <option value="">Drop Off Address</option>
+                    <option
+                      *ngFor="let location of locations"
+                      [value]="location.locationId"
+                    >
+                      {{ location.title }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <label for="">Date Of Travel</label>
+                  <input
+                    [(ngModel)]="bookingObj.travelDate"
+                    type="date"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-6">
+                  <label for="">Travel Start Time</label>
+                  <input
+                    [(ngModel)]="bookingObj.startTime"
+                    type="text"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="">Start Address</label>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    class="form-control"
+                    [(ngModel)]="bookingObj.pickupAddress"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <label for="">Alternate Contact No.</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="bookingObj.alternateContactNo"
+                  />
+                </div>
+              </div>
+              <!-- <div
+                class="bg-secondary text-white p-2 mt-2"
+                style="border-radius: 10px"
+              >
+                <div class="row">
+                  <div class="col-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> FIRST
+                  </div>
+                  <div class="col-9">10% Off</div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-12">
+                    <p>Only For New Customer get 10% off on Total Amount</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-secondary text-white p-2 mt-2"
+                style="border-radius: 10px"
+              >
+                <div class="row">
+                  <div class="col-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> FIRST
+                  </div>
+                  <div class="col-9">10% Off</div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-12">
+                    <p>Only For New Customer get 10% off on Total Amount</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-secondary text-white p-2 mt-2"
+                style="border-radius: 10px"
+              >
+                <div class="row">
+                  <div class="col-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> FIRST
+                  </div>
+                  <div class="col-9">10% Off</div>
+                </div>
+                <div class="row pt-1">
+                  <div class="col-12">
+                    <p>Only For New Customer get 10% off on Total Amount</p>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="d-grid gap-2 pt-3">
+                <button
+                  class="btn btn-success btn-lg"
+                  type="button"
+                  (click)="createBooking()"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body bg-dark text-light">
+          <div class="row">
+            <div class="col-2">
+              <div class="round">S</div>
+            </div>
+            <div class="col-10 tex">Rahil Rahman</div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p>
+                Dear ZoomCar Customer Support I hope this message finds you well
+                I am writing to express my concern and…
+              </p>
+              <p>1 Week Ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body bg-dark text-light">
+          <div class="row">
+            <div class="col-2">
+              <div class="round">S</div>
+            </div>
+            <div class="col-10 tex">Sahid Ahmed</div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p>
+                Dear ZoomCar Customer Support I hope this message finds you well
+                I am writing to express my concern and…
+              </p>
+              <p>1 Week Ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body bg-dark text-light">
+          <div class="row">
+            <div class="col-2">
+              <div class="round">S</div>
+            </div>
+            <div class="col-10 tex">Tushar Rahman</div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p>
+                Dear ZoomCar Customer Support I hope this message finds you well
+                I am writing to express my concern and…
+              </p>
+              <p>1 Week Ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body bg-dark text-light">
+          <div class="row">
+            <div class="col-2">
+              <div class="round">S</div>
+            </div>
+            <div class="col-10 tex">Shohan Kabir</div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p>
+                Dear ZoomCar Customer Support I hope this message finds you well
+                I am writing to express my concern and…
+              </p>
+              <p>1 Week Ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

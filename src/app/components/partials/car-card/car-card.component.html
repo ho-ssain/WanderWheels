@@ -1,0 +1,43 @@
+<section class="car-list-card">
+  <div class="car-list-card-image">
+    <img [src]="carData?.imageUrl" />
+  </div>
+  <div class="car-list-card-description">
+    <div class="car-list-card-description-reviews">
+      <div class="car-list-card-description-reviews-icon">
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+      <div class="car-list-card-description-reviews-value">4.98</div>
+      <div class="car-list-card-description-reviews-count"></div>
+    </div>
+    <div class="car-list-card-description-title">
+      {{ carData?.brand }} {{ carData?.name }}
+    </div>
+    <div class="car-list-card-description-properties">
+      <div
+        class="car-list-card-description-properties-property"
+        *ngFor="let details of carData?.carAccessoriess"
+      >
+        {{ details.accessoriesTitle }}
+        <div class="property-point"></div>
+      </div>
+    </div>
+  </div>
+  <div class="car-list-card-price-distance">
+    <div class="car-list-card-price">
+      <div class="car-list-card-price-availability-text">
+        {{ carData?.registeredOn | date : "dd-MM-yyyy" }}
+      </div>
+      <div class="car-list-card-price-title">
+        {{ carData?.pricingDescription }}
+      </div>
+      <div class="car-list-card-price-sub-title"></div>
+    </div>
+    <div class="car-list-card-distance">
+      <div class="car-list-card-distance-place">
+        <i class="fa fa-location" aria-hidden="true"></i>
+        {{ carData?.locationTitle }}
+      </div>
+    </div>
+  </div>
+</section>

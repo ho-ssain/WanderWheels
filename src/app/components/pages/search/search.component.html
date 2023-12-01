@@ -1,0 +1,156 @@
+<div class="container-fluid" style="padding-top: 75px">
+  <div class="car-list-home-container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <div class="card-header text-light">Filter</div>
+          <div class="card-body bg-black">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Brand"
+                />
+              </div>
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Model"
+                />
+              </div>
+            </div>
+            <div class="row pt-2">
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Brand"
+                />
+              </div>
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Model"
+                />
+              </div>
+            </div>
+            <h6 class="pt-2 text-light">Sort By</h6>
+            <div class="row">
+              <div class="col-6">
+                <select class="form-control">
+                  <option value="">By Car</option>
+                  <option value="">By Price</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Model"
+                />
+              </div>
+            </div>
+            <h6 class="pt-2 text-light">Car Type</h6>
+            <div class="row">
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">EV</button>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">SEDAN</button>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">SUV</button>
+                </div>
+              </div>
+            </div>
+            <h6 class="pt-2 text-light">Seat Type</h6>
+            <div class="row">
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">4 Seater</button>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">5 Seater</button>
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-secondary">7 Seater</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-4">
+            <label for="">Pick Up Point</label>
+            <select
+              (change)="onLocationChange()"
+              [(ngModel)]="fromLocation"
+              name="fromLocation"
+              id=""
+              class="form-control"
+              id="start"
+            >
+              <option value="">Pick Up Address</option>
+              <option
+                *ngFor="let location of locations"
+                [value]="location.locationId"
+              >
+                {{ location.title }}
+              </option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="">Destination</label>
+            <select
+              [(ngModel)]="toLocation"
+              name="toLocation"
+              id=""
+              class="form-control"
+              id="start"
+            >
+              <option value="">Drop Off Address</option>
+              <option
+                *ngFor="let location of locations"
+                [value]="location.locationId"
+              >
+                {{ location.title }}
+              </option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="">Start Time - End Time</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <!-- ..................................................... -->
+
+        <div class="row">
+          <ul>
+            <li
+              *ngFor="let car of availableCars"
+              (click)="makeBooking(car.carId)"
+            >
+              <app-car-card [carData]="car"></app-car-card>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ............................................................. -->
+      </div>
+    </div>
+  </div>
+</div>

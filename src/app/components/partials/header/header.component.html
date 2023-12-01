@@ -1,0 +1,82 @@
+<header>
+  <div class="navbar">
+    <a routerLink="/" class="logo">
+      <img src="assets/logo.png" alt="logo" />
+    </a>
+    <div class="nav-links" [ngClass]="{ show: isMenuOpen }">
+      <ul>
+        <li>
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li *ngIf="!currentUser">
+          <a routerLink="/sign-up" routerLinkActive="active">Sign-Up</a>
+        </li>
+        <li class="menu-container" *ngIf="currentUser">
+          <a routerLink="#">{{ currentUser.name }} </a>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="#" (click)="logOut()">Logout</a>
+          </div>
+        </li>
+        <li *ngIf="currentUser?.userRole === 'CarOwner'">
+          <a routerLink="/cars">Cars</a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <!-- <li>
+          <a routerLink="" routerLinkActive="active">
+            Booked Car <span>10</span>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+
+    <img
+      src="assets/menu-bar.png"
+      alt="menu-bar"
+      class="menu-bar"
+      (click)="toggleMenu()"
+    />
+  </div>
+</header>
+
+<!-- <main>
+    <a routerLink="/" class="logo">
+      <img src="assets/logo.png" alt="logo" />
+    </a>
+
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/foods-cat" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a routerLink="/login" routerLinkActive="active">Sign-Up</a>
+        </li>
+        <li class="menu-container">
+          <a routerLink="#">Kabir</a>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/orders">Orders</a>
+            <a href="#"> Sign-out</a>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="active">About</a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li>
+          <a routerLink="/cart" routerLinkActive="active">
+            Booked Car <span>10</span>
+          </a>
+        </li>
+      </ul>
+      <img src="assets/menu-bar.png" alt="menu" class="menu-bar" />
+    </nav>
+  </main> -->

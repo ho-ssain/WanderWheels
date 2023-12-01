@@ -1,0 +1,29 @@
+main {
+  overflow: hidden;
+}
+
+select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+h3 {
+  margin-top: 1rem;
+  border: none;
+  box-shadow: 0 4px 8px rgba(5, 198, 15, 0.574);
+}

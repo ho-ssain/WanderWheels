@@ -1,0 +1,96 @@
+.car-list-card {
+  border: 1px solid #eceff133;
+  color: #eceff1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(7, 156, 14, 0.574);
+  transition: transform 0.2s ease-in-out;
+  --hsl: var(--heu), var(--saturation), var(--lightness);
+  background-color: #000000;
+}
+
+.car-list-card:hover {
+  transform: scale(1.02);
+}
+
+.car-list-card-image {
+  width: 250px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.car-list-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-list-card-description {
+  padding: 16px;
+}
+
+.car-list-card-description-reviews {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.car-list-card-description-reviews-icon {
+  color: #f8d61b;
+  margin-right: 4px;
+}
+
+.car-list-card-description-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.car-list-card-description-properties {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.car-list-card-description-properties-property {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.property-point {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+  border-radius: 50%;
+  margin-left: 4px;
+}
+
+.car-list-card-price-distance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.car-list-card-price {
+  flex-grow: 1;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.car-list-card-distance {
+  text-align: right;
+  padding-right: 1rem;
+  color: #fff;
+  background-color: #221f1f;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.fa-location {
+  color: tomato;
+}

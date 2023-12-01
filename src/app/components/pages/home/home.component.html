@@ -1,0 +1,68 @@
+<main>
+  <div id="booking">
+    <form id="form">
+      <select
+        [(ngModel)]="fromLocation"
+        name="fromLocation"
+        id=""
+        class="form-control"
+        id="start"
+      >
+        <option value="">Pick Up Address</option>
+        <option
+          *ngFor="let location of locations"
+          [value]="location.locationId"
+        >
+          {{ location.title }}
+        </option>
+      </select>
+
+      <select
+        [(ngModel)]="toLocation"
+        name="toLocation"
+        class="form-control"
+        id="start"
+      >
+        <option value="">Drop Off Address</option>
+        <option
+          *ngFor="let location of locations"
+          [value]="location.locationId"
+        >
+          {{ location.title }}
+        </option>
+      </select>
+
+      <div>
+        <button
+          id="primaryButton"
+          type="button"
+          (click)="navigationToSearchPage()"
+        >
+          FIND CARS
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3>POPULAR CARS</h3>
+    </div>
+  </div>
+
+  <!-- <div class="car-list-home-container">
+    <div class="row car-list-home">
+      <div class="col-3" *ngFor="let car of popularCars">
+        <app-car-card [carData]="car"></app-car-card>
+      </div>
+    </div>
+  </div> -->
+
+  <ul>
+    <li *ngFor="let car of popularCars">
+      <app-car-card [carData]="car"></app-car-card>
+    </li>
+  </ul>
+
+  <app-footer></app-footer>
+</main>
