@@ -21,6 +21,11 @@ WanderWheels is a Car rental System provides a convenient, on-demand solution fo
 
 ## UI
 
+![home](home.png)
+![search](search.png)
+![car](car.png)
+![booking](booking.png)
+
 ## Technologies Used
 
 - Angular
