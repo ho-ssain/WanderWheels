@@ -11,6 +11,13 @@ WanderWheels is a Car rental System provides a convenient, on-demand solution fo
 
 ## Features
 
+1. cars by Owner-id
+2. cars by location
+3. search car by location
+4. add new car
+5. access
+6. create booking
+
 ## System Design
 
 ![sd](sd.png)
@@ -25,6 +32,7 @@ WanderWheels is a Car rental System provides a convenient, on-demand solution fo
 ![search](search.png)
 ![car](car.png)
 ![booking](booking.png)
+![addNewCar](addCar.png)
 
 ## Technologies Used
 
